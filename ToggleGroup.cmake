@@ -1,3 +1,10 @@
+# A function to get all user defined variables with a specified prefix
+function (getListOfVarsStartingWith _prefix _varResult)
+    get_cmake_property(_vars VARIABLES)
+    string (REGEX MATCHALL "(^|;)${_prefix}[A-Za-z0-9_]*" _matchedVars "${_vars}")
+    set (${_varResult} ${_matchedVars} PARENT_SCOPE)
+endfunction()
+
 # This macro allows us to toggle a group of bool CMake variables
 # I.e. if there are variables called myproject_ExeA, myproject_ExeB,
 # and myproject_ExeC, we can enable/disable them all together using
