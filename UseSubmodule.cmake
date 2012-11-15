@@ -8,6 +8,8 @@ macro(UseSubmodule Submodule CurrentProject)
  set(${CurrentProject}_include_dirs ${${CurrentProject}_include_dirs} ${${Submodule}IncludeDirs})
  get_property(${Submodule}Libs GLOBAL PROPERTY ${Submodule}Libs)
  set(${CurrentProject}_libraries ${${CurrentProject}_libraries} ${${Submodule}Libs})
+
+  include_directories(${${CurrentProject}_include_dirs})
 endmacro()
 
 # Example:
