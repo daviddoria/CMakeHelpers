@@ -1,0 +1,8 @@
+This repository contains some convenient functions for creating and using submodules.
+
+If all functionality is required, this directory can be included with:
+
+add_subdirectory(ITKHelpers/CMakeHelpers)
+
+However, sometimes this is confusing and against CMake rules if CMakeHelpers is used from Child/ and also from Parent/ (as add_subdirectory(Child/CMakeHelpers) ). Instead, we can directly include() the .cmake files from Parent/CMakeLists.txt
+include(Child/UseSubmodule.cmake)
